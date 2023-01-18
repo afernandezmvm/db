@@ -1,0 +1,15 @@
+TutorAlumno (id_tutorAlumno, nombre_tutorEmpresa)
+
+TutorEmpresa (id_tutorEmpresa, nombre_tutorEmpresa)
+
+Alumno (id_alumno, nombre_alumno, apellido_alumno, fechaNacimiento_alumno, email_alumno, tlf_alumno, cicle_alumno, curso_alumno, id_tutorAlumno),
+ON {id_tutorAlumno} REFERENCES tutorAlumno.
+
+Practica (id_practica, id_alumno, id_empresa, dataInicio_practica, dataFinal_practica),
+ON {id_alumno} REFERENCES alumno, 
+ON {id_empresa} REFERENCES empresa.
+ON {id_tutorEmpresa} REFERENCES tutorEmpresa.
+ON {id_tutorAlumno} REFERENCES tutorAlumno.
+
+Empresa (id_empresa, nombre_empresa , direccion_empresa, tlf_empresa, homologacion, estudios_empresa, id_tutorEmpresa).	
+ON {id_tutorEmpresa} REFERENCES tutorEmpresa.
